@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es-SV">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f3f8">
+    <meta name="description" content="Conectá con Walter Morales. hello@wmorales.dev · Ai Labs.">
+    <title>Walter Morales · Ai Labs</title>
+    <style>
+      @layer reset, tokens, base, layout;
+
+      @layer reset {
+        *, *::before, *::after { box-sizing: border-box; }
+        body, h1, h2, p, figure { margin: 0; }
+      }
+
+      @layer tokens {
+        :root {
+          color-scheme: light dark;
+          --background: #f5f3f8;
+          --ink: #18151d;
+          --muted: #696270;
+          --accent: #5438f5;
+          --line: #ddd9e4;
+          --white: #fff;
+          --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+          --space-xs: .5rem;
+          --space-sm: 1rem;
+          --space-md: 1.5rem;
+          --space-lg: 2rem;
+          --space-xl: 3rem;
+          --space-2xl: 4rem;
+          --space-3xl: 6rem;
+          --page-width: 73rem;
+          --qr-width: 22rem;
+          --radius: 1.25rem;
+          --text-small: .8125rem;
+          --text-body: 1rem;
+          --text-email: clamp(1rem, 2vw, 1.25rem);
+          --text-heading: clamp(3.5rem, 7vw, 6rem);
+          --text-brand: 1.75rem;
+          --weight-normal: 400;
+          --weight-medium: 500;
+          --weight-bold: 700;
+          --tracking-tight: -.065em;
+          --tracking-label: .14em;
+          --outline: 3px;
+          --outline-offset: 6px;
+          --surface: #ece9f2;
+          --on-accent: #faf9ff;
+          --tracking-brand: -.045em;
+          --press-offset: 1px;
+          --nav-radius: .75rem;
+          --people-width: 48rem;
+          --people-heading: clamp(2.5rem, 6vw, 4rem);
+          --text-section: 1.75rem;
+          --qr-mobile: 18rem;
+        }
+      }
+
+      @layer base {
+        body {
+          background: var(--background);
+          color: var(--ink);
+          font-family: var(--sans);
+          -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: var(--space-xs); }
+        a:hover { color: var(--accent); }
+        a:focus-visible { outline: var(--outline) solid var(--accent); outline-offset: var(--outline-offset); }
+        ::selection { background: var(--accent); color: var(--white); }
+      }
+
+      @layer layout {
+        .page {
+          width: min(100%, var(--page-width));
+          min-height: 100svh;
+          min-height: 100dvh;
+          margin-inline: auto;
+          padding: var(--space-lg) var(--space-md);
+          display: grid;
+          grid-template-rows: auto 1fr auto;
+        }
+        .header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--line); }
+        .brand {
+          display: inline-block;
+          font-size: var(--text-brand);
+          font-weight: var(--weight-bold);
+          letter-spacing: var(--tracking-brand);
+          text-decoration: none;
+        }
+        .brand span { color: var(--accent); }
+        .content {
+          display: grid;
+          align-items: center;
+          gap: var(--space-lg);
+          padding-block: var(--space-lg);
+        }
+        .identity { min-width: 0; }
+        .eyebrow {
+          margin-bottom: var(--space-md);
+          color: var(--muted);
+          font-family: var(--mono);
+          font-size: var(--text-small);
+          font-weight: var(--weight-normal);
+          letter-spacing: var(--tracking-label);
+          text-transform: uppercase;
+        }
+        h1 {
+          font-size: var(--text-heading);
+          line-height: .98;
+          letter-spacing: var(--tracking-tight);
+          font-weight: var(--weight-medium);
+        }
+        h1 span { display: block; }
+        .email {
+          display: inline-block;
+          margin-top: var(--space-lg);
+          font-size: var(--text-email);
+          line-height: 1.6;
+          overflow-wrap: anywhere;
+        }
+        .qr { width: min(100%, var(--qr-width)); justify-self: center; }
+        .qr-image {
+          display: block;
+          background: var(--white);
+          border: 1px solid var(--line);
+          border-radius: var(--radius);
+          padding: var(--space-sm);
+          aspect-ratio: 1;
+        }
+        .qr-image img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+        figcaption { padding-top: var(--space-md); text-align: center; }
+        h2 { font-size: var(--text-body); font-weight: var(--weight-medium); line-height: 1.5; }
+        .destination {
+          display: inline-block;
+          margin-top: var(--space-xs);
+          color: var(--muted);
+          font-family: var(--mono);
+          font-size: var(--text-small);
+          line-height: 1.6;
+        }
+        .footer {
+          display: flex;
+          justify-content: space-between;
+          gap: var(--space-sm);
+          padding-top: var(--space-md);
+          border-top: 1px solid var(--line);
+          color: var(--muted);
+          font-size: var(--text-small);
+          line-height: 1.5;
+        }
+        .footer span:last-child { color: var(--accent); }
+        @media (min-width: 768px) {
+          .page { padding: var(--space-xl) var(--space-xl) var(--space-lg); }
+          .content { grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: var(--space-2xl); }
+          .qr { justify-self: end; }
+        }
+        @media (max-width: 767px) {
+          .identity { text-align: center; }
+          .qr { max-width: var(--qr-mobile); }
+        }
+        @media print {
+          :root { --background: #fff; }
+          .page { min-height: 0; }
+          .content { grid-template-columns: 1fr 1fr; }
+          .identity { text-align: left; }
+          .qr { break-inside: avoid; }
+          a { text-decoration: none; }
+        }
+      }
+    
+      @layer tokens {
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --background: #17151c;
+            --ink: #f3f0f8;
+            --muted: #b8b1c5;
+            --accent: #b1a1ff;
+            --line: #39323f;
+            --surface: #24202c;
+          }
+        }
+      }
+      @layer layout {
+        nav { display: flex; align-items: center; gap: var(--space-xs); white-space: nowrap; }
+        nav a { padding: var(--space-xs) var(--space-sm); border-radius: var(--nav-radius); text-decoration: none; font-size: var(--text-small); font-weight: var(--weight-medium); }
+        nav a:hover, nav a[aria-current="page"] { background: var(--surface); color: var(--accent); }
+        a:active { transform: translateY(var(--press-offset)); }
+        .people { padding-block: var(--space-xl); max-width: var(--people-width); width: 100%; overflow-wrap: anywhere; }
+        .people h1 { font-size: var(--people-heading); margin-bottom: var(--space-lg); }
+        .people h2, .people h3 { font-size: var(--text-section); letter-spacing: var(--tracking-brand); margin: var(--space-xl) 0 var(--space-sm); }
+        .people p, .people ul { line-height: 1.7; margin-bottom: var(--space-sm); max-width: 65ch; }
+        .people ul { padding-left: var(--space-md); }
+        .people pre { overflow: auto; padding: var(--space-sm); background: var(--surface); border-radius: var(--nav-radius); }
+        .people a { color: var(--accent); }
+        .people[aria-busy="true"] { color: var(--muted); }
+        @media (max-width: 767px) {
+          .page { padding-inline: var(--space-sm); }
+          .footer { flex-wrap: wrap; }
+        }
+      }
+</style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <a class="brand" href="https://ailabs.sv" aria-label="Ai Labs, sitio web"><span>Ai</span> /abs</a>
+        <nav aria-label="Principal"><a href="/github">GitHub</a></nav>
+      </header>
+      <main class="content">
+        <section class="identity" aria-labelledby="name">
+          <p class="eyebrow">Conectemos</p>
+          <h1 id="name">Walter <span>Morales</span></h1>
+          <a class="email" href="mailto:hello@wmorales.dev">hello@wmorales.dev</a>
+        </section>
+        <figure class="qr">
+          <!-- QR provisional: https://ailabs.sv. Al cambiar el destino, regenerar
+               la imagen e indicar la misma URL en el enlace y en el texto inferior. -->
+          <a class="qr-image" href="https://ailabs.sv" aria-label="Abrir ailabs.sv">
+            <img id="qr-code" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMyAzMyIgd2lkdGg9IjUyOCIgaGVpZ2h0PSI1MjgiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iQ8OzZGlnbyBRUiBwYXJhIGh0dHBzOi8vYWlsYWJzLnN2IiBzaGFwZS1yZW5kZXJpbmc9ImNyaXNwRWRnZXMiPjxyZWN0IHdpZHRoPSIzMyIgaGVpZ2h0PSIzMyIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik00IDRoMXYxaC0xek01IDRoMXYxaC0xek02IDRoMXYxaC0xek03IDRoMXYxaC0xek04IDRoMXYxaC0xek05IDRoMXYxaC0xek0xMCA0aDF2MWgtMXpNMTMgNGgxdjFoLTF6TTE3IDRoMXYxaC0xek0xOSA0aDF2MWgtMXpNMjIgNGgxdjFoLTF6TTIzIDRoMXYxaC0xek0yNCA0aDF2MWgtMXpNMjUgNGgxdjFoLTF6TTI2IDRoMXYxaC0xek0yNyA0aDF2MWgtMXpNMjggNGgxdjFoLTF6TTQgNWgxdjFoLTF6TTEwIDVoMXYxaC0xek0xMyA1aDF2MWgtMXpNMTQgNWgxdjFoLTF6TTE3IDVoMXYxaC0xek0xOCA1aDF2MWgtMXpNMTkgNWgxdjFoLTF6TTIyIDVoMXYxaC0xek0yOCA1aDF2MWgtMXpNNCA2aDF2MWgtMXpNNiA2aDF2MWgtMXpNNyA2aDF2MWgtMXpNOCA2aDF2MWgtMXpNMTAgNmgxdjFoLTF6TTEyIDZoMXYxaC0xek0xNCA2aDF2MWgtMXpNMTYgNmgxdjFoLTF6TTE3IDZoMXYxaC0xek0yMCA2aDF2MWgtMXpNMjIgNmgxdjFoLTF6TTI0IDZoMXYxaC0xek0yNSA2aDF2MWgtMXpNMjYgNmgxdjFoLTF6TTI4IDZoMXYxaC0xek00IDdoMXYxaC0xek02IDdoMXYxaC0xek03IDdoMXYxaC0xek04IDdoMXYxaC0xek0xMCA3aDF2MWgtMXpNMTIgN2gxdjFoLTF6TTEzIDdoMXYxaC0xek0xNCA3aDF2MWgtMXpNMTUgN2gxdjFoLTF6TTE4IDdoMXYxaC0xek0xOSA3aDF2MWgtMXpNMjAgN2gxdjFoLTF6TTIyIDdoMXYxaC0xek0yNCA3aDF2MWgtMXpNMjUgN2gxdjFoLTF6TTI2IDdoMXYxaC0xek0yOCA3aDF2MWgtMXpNNCA4aDF2MWgtMXpNNiA4aDF2MWgtMXpNNyA4aDF2MWgtMXpNOCA4aDF2MWgtMXpNMTAgOGgxdjFoLTF6TTEyIDhoMXYxaC0xek0xNCA4aDF2MWgtMXpNMTUgOGgxdjFoLTF6TTE2IDhoMXYxaC0xek0yMCA4aDF2MWgtMXpNMjIgOGgxdjFoLTF6TTI0IDhoMXYxaC0xek0yNSA4aDF2MWgtMXpNMjYgOGgxdjFoLTF6TTI4IDhoMXYxaC0xek00IDloMXYxaC0xek0xMCA5aDF2MWgtMXpNMTIgOWgxdjFoLTF6TTE0IDloMXYxaC0xek0xOSA5aDF2MWgtMXpNMjAgOWgxdjFoLTF6TTIyIDloMXYxaC0xek0yOCA5aDF2MWgtMXpNNCAxMGgxdjFoLTF6TTUgMTBoMXYxaC0xek02IDEwaDF2MWgtMXpNNyAxMGgxdjFoLTF6TTggMTBoMXYxaC0xek05IDEwaDF2MWgtMXpNMTAgMTBoMXYxaC0xek0xMiAxMGgxdjFoLTF6TTE0IDEwaDF2MWgtMXpNMTYgMTBoMXYxaC0xek0xOCAxMGgxdjFoLTF6TTIwIDEwaDF2MWgtMXpNMjIgMTBoMXYxaC0xek0yMyAxMGgxdjFoLTF6TTI0IDEwaDF2MWgtMXpNMjUgMTBoMXYxaC0xek0yNiAxMGgxdjFoLTF6TTI3IDEwaDF2MWgtMXpNMjggMTBoMXYxaC0xek0xMiAxMWgxdjFoLTF6TTEzIDExaDF2MWgtMXpNMTQgMTFoMXYxaC0xek0xNiAxMWgxdjFoLTF6TTE4IDExaDF2MWgtMXpNNCAxMmgxdjFoLTF6TTYgMTJoMXYxaC0xek03IDEyaDF2MWgtMXpNOCAxMmgxdjFoLTF6TTkgMTJoMXYxaC0xek0xMCAxMmgxdjFoLTF6TTE1IDEyaDF2MWgtMXpNMTkgMTJoMXYxaC0xek0yMCAxMmgxdjFoLTF6TTIyIDEyaDF2MWgtMXpNMjMgMTJoMXYxaC0xek0yNCAxMmgxdjFoLTF6TTI1IDEyaDF2MWgtMXpNMjYgMTJoMXYxaC0xek01IDEzaDF2MWgtMXpNNyAxM2gxdjFoLTF6TTkgMTNoMXYxaC0xek0xMSAxM2gxdjFoLTF6TTE0IDEzaDF2MWgtMXpNMTUgMTNoMXYxaC0xek0xNyAxM2gxdjFoLTF6TTE4IDEzaDF2MWgtMXpNMjAgMTNoMXYxaC0xek0yMyAxM2gxdjFoLTF6TTI3IDEzaDF2MWgtMXpNNCAxNGgxdjFoLTF6TTUgMTRoMXYxaC0xek05IDE0aDF2MWgtMXpNMTAgMTRoMXYxaC0xek0xMiAxNGgxdjFoLTF6TTE1IDE0aDF2MWgtMXpNMTcgMTRoMXYxaC0xek0xOCAxNGgxdjFoLTF6TTE5IDE0aDF2MWgtMXpNMjMgMTRoMXYxaC0xek0yNSAxNGgxdjFoLTF6TTI3IDE0aDF2MWgtMXpNMjggMTRoMXYxaC0xek00IDE1aDF2MWgtMXpNNiAxNWgxdjFoLTF6TTggMTVoMXYxaC0xek05IDE1aDF2MWgtMXpNMTEgMTVoMXYxaC0xek0xNSAxNWgxdjFoLTF6TTE2IDE1aDF2MWgtMXpNMTcgMTVoMXYxaC0xek0yMCAxNWgxdjFoLTF6TTIxIDE1aDF2MWgtMXpNMjIgMTVoMXYxaC0xek0yOCAxNWgxdjFoLTF6TTUgMTZoMXYxaC0xek03IDE2aDF2MWgtMXpNOCAxNmgxdjFoLTF6TTEwIDE2aDF2MWgtMXpNMTEgMTZoMXYxaC0xek0xMiAxNmgxdjFoLTF6TTEzIDE2aDF2MWgtMXpNMTQgMTZoMXYxaC0xek0xNiAxNmgxdjFoLTF6TTE4IDE2aDF2MWgtMXpNMjEgMTZoMXYxaC0xek0yMiAxNmgxdjFoLTF6TTI0IDE2aDF2MWgtMXpNMjYgMTZoMXYxaC0xek0yNyAxNmgxdjFoLTF6TTI4IDE2aDF2MWgtMXpNNCAxN2gxdjFoLTF6TTUgMTdoMXYxaC0xek02IDE3aDF2MWgtMXpNNyAxN2gxdjFoLTF6TTExIDE3aDF2MWgtMXpNMTQgMTdoMXYxaC0xek0yMyAxN2gxdjFoLTF6TTI1IDE3aDF2MWgtMXpNMjcgMTdoMXYxaC0xek00IDE4aDF2MWgtMXpNNiAxOGgxdjFoLTF6TTkgMThoMXYxaC0xek0xMCAxOGgxdjFoLTF6TTEyIDE4aDF2MWgtMXpNMTUgMThoMXYxaC0xek0xNiAxOGgxdjFoLTF6TTE5IDE4aDF2MWgtMXpNMjAgMThoMXYxaC0xek0yMSAxOGgxdjFoLTF6TTIzIDE4aDF2MWgtMXpNMjQgMThoMXYxaC0xek0yNSAxOGgxdjFoLTF6TTI3IDE4aDF2MWgtMXpNMjggMThoMXYxaC0xek00IDE5aDF2MWgtMXpNNiAxOWgxdjFoLTF6TTkgMTloMXYxaC0xek0xMiAxOWgxdjFoLTF6TTE0IDE5aDF2MWgtMXpNMTUgMTloMXYxaC0xek0xOCAxOWgxdjFoLTF6TTIyIDE5aDF2MWgtMXpNMjMgMTloMXYxaC0xek0yNCAxOWgxdjFoLTF6TTI4IDE5aDF2MWgtMXpNNCAyMGgxdjFoLTF6TTggMjBoMXYxaC0xek0xMCAyMGgxdjFoLTF6TTExIDIwaDF2MWgtMXpNMTQgMjBoMXYxaC0xek0xNSAyMGgxdjFoLTF6TTE5IDIwaDF2MWgtMXpNMjAgMjBoMXYxaC0xek0yMSAyMGgxdjFoLTF6TTIyIDIwaDF2MWgtMXpNMjMgMjBoMXYxaC0xek0yNCAyMGgxdjFoLTF6TTI2IDIwaDF2MWgtMXpNMTIgMjFoMXYxaC0xek0xMyAyMWgxdjFoLTF6TTE2IDIxaDF2MWgtMXpNMTcgMjFoMXYxaC0xek0xOCAyMWgxdjFoLTF6TTIwIDIxaDF2MWgtMXpNMjQgMjFoMXYxaC0xek0yNSAyMWgxdjFoLTF6TTQgMjJoMXYxaC0xek01IDIyaDF2MWgtMXpNNiAyMmgxdjFoLTF6TTcgMjJoMXYxaC0xek04IDIyaDF2MWgtMXpNOSAyMmgxdjFoLTF6TTEwIDIyaDF2MWgtMXpNMTcgMjJoMXYxaC0xek0xOCAyMmgxdjFoLTF6TTIwIDIyaDF2MWgtMXpNMjIgMjJoMXYxaC0xek0yNCAyMmgxdjFoLTF6TTI2IDIyaDF2MWgtMXpNMjcgMjJoMXYxaC0xek0yOCAyMmgxdjFoLTF6TTQgMjNoMXYxaC0xek0xMCAyM2gxdjFoLTF6TTEyIDIzaDF2MWgtMXpNMTMgMjNoMXYxaC0xek0xNCAyM2gxdjFoLTF6TTE2IDIzaDF2MWgtMXpNMTcgMjNoMXYxaC0xek0yMCAyM2gxdjFoLTF6TTI0IDIzaDF2MWgtMXpNMjUgMjNoMXYxaC0xek0yNyAyM2gxdjFoLTF6TTI4IDIzaDF2MWgtMXpNNCAyNGgxdjFoLTF6TTYgMjRoMXYxaC0xek03IDI0aDF2MWgtMXpNOCAyNGgxdjFoLTF6TTEwIDI0aDF2MWgtMXpNMTIgMjRoMXYxaC0xek0xMyAyNGgxdjFoLTF6TTE2IDI0aDF2MWgtMXpNMTggMjRoMXYxaC0xek0xOSAyNGgxdjFoLTF6TTIwIDI0aDF2MWgtMXpNMjEgMjRoMXYxaC0xek0yMiAyNGgxdjFoLTF6TTIzIDI0aDF2MWgtMXpNMjQgMjRoMXYxaC0xek0yNiAyNGgxdjFoLTF6TTI4IDI0aDF2MWgtMXpNNCAyNWgxdjFoLTF6TTYgMjVoMXYxaC0xek03IDI1aDF2MWgtMXpNOCAyNWgxdjFoLTF6TTEwIDI1aDF2MWgtMXpNMTIgMjVoMXYxaC0xek0xMyAyNWgxdjFoLTF6TTE0IDI1aDF2MWgtMXpNMTkgMjVoMXYxaC0xek0yMCAyNWgxdjFoLTF6TTIxIDI1aDF2MWgtMXpNMjIgMjVoMXYxaC0xek0yNCAyNWgxdjFoLTF6TTI1IDI1aDF2MWgtMXpNMjYgMjVoMXYxaC0xek0yNyAyNWgxdjFoLTF6TTI4IDI1aDF2MWgtMXpNNCAyNmgxdjFoLTF6TTYgMjZoMXYxaC0xek03IDI2aDF2MWgtMXpNOCAyNmgxdjFoLTF6TTEwIDI2aDF2MWgtMXpNMTIgMjZoMXYxaC0xek0xMyAyNmgxdjFoLTF6TTE0IDI2aDF2MWgtMXpNMTUgMjZoMXYxaC0xek0xNiAyNmgxdjFoLTF6TTE5IDI2aDF2MWgtMXpNMjUgMjZoMXYxaC0xek0yNiAyNmgxdjFoLTF6TTI4IDI2aDF2MWgtMXpNNCAyN2gxdjFoLTF6TTEwIDI3aDF2MWgtMXpNMTUgMjdoMXYxaC0xek0xOCAyN2gxdjFoLTF6TTE5IDI3aDF2MWgtMXpNMjAgMjdoMXYxaC0xek0yMiAyN2gxdjFoLTF6TTIzIDI3aDF2MWgtMXpNMjQgMjdoMXYxaC0xek0yNSAyN2gxdjFoLTF6TTI4IDI3aDF2MWgtMXpNNCAyOGgxdjFoLTF6TTUgMjhoMXYxaC0xek02IDI4aDF2MWgtMXpNNyAyOGgxdjFoLTF6TTggMjhoMXYxaC0xek05IDI4aDF2MWgtMXpNMTAgMjhoMXYxaC0xek0xMiAyOGgxdjFoLTF6TTE1IDI4aDF2MWgtMXpNMjEgMjhoMXYxaC0xek0yMiAyOGgxdjFoLTF6TTIzIDI4aDF2MWgtMXpNMjQgMjhoMXYxaC0xek0yNSAyOGgxdjFoLTF6TTI2IDI4aDF2MWgtMXpNMjcgMjhoMXYxaC0xek0yOCAyOGgxdjFoLTF6IiBmaWxsPSIjMDAwIi8+PC9zdmc+" width="528" height="528" alt="Código QR para abrir https://ailabs.sv">
+          </a>
+          <figcaption>
+            <h2>Escaneá para conectar.</h2>
+            <a class="destination" href="https://ailabs.sv">ailabs.sv</a>
+          </figcaption>
+        </figure>
+      </main>
+      <footer class="footer">
+        <span>Walter Morales</span>
+        <span>Nos vemos en Ai Labs.</span>
+      </footer>
+    </div>
+  </body>
+</html>
